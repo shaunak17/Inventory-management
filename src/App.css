@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  color: white;
+}
+.admin-toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+.topbar-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.admin-user-text {
+  margin-top: 8px;
+  font-size: 14px;
+}
+.text-heading{
+  display: flex;
+  justify-content: flex-start;
+}
