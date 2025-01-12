@@ -24,15 +24,17 @@ const InventoryTable: React.FC<InventoryTableProps> = ({ isAdmin, products, onEd
             <TableCell sx={{ color: 'green' }}>Category</TableCell>
             <TableCell sx={{ color: 'green' }}>Price</TableCell>
             <TableCell sx={{ color: 'green' }}>Quantity</TableCell>
-            <TableCell sx={{ color: 'green' }}>Value</TableCell> 
+            <TableCell sx={{ color: 'green' }}>Value</TableCell>
             <TableCell sx={{ color: 'green' }}>ACTION</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {products.map((product, index) => {
             return (
-              <TableRow key={index} sx={{ color: product.disabled ? 'grey' : '#222',
-                opacity: product.disabled ? 0.5 : 1, }}>
+              <TableRow key={index} sx={{
+                color: product.disabled ? 'grey' : '#222',
+                opacity: product.disabled ? 0.5 : 1,
+              }}>
                 <TableCell sx={{ color: 'white' }}>{product.name}</TableCell>
                 <TableCell sx={{ color: 'white' }}>{product.category}</TableCell>
                 <TableCell sx={{ color: 'white' }}>{product.price}</TableCell>
@@ -46,10 +48,7 @@ const InventoryTable: React.FC<InventoryTableProps> = ({ isAdmin, products, onEd
                         color="primary"
                         disabled={product.disabled}
                       >
-                        <EditIcon sx={{ color: product.disabled ? 'grey' : 'white' }} />
-                      </IconButton>
-                      <IconButton onClick={() => onDelete(index)} color="error">
-                        <DeleteIcon />
+                        <EditIcon sx={{ color: product.disabled ? 'grey' : 'green' }} />
                       </IconButton>
                       <IconButton onClick={() => onDisable(index)} color="secondary">
                         {product.disabled ? (
@@ -58,14 +57,14 @@ const InventoryTable: React.FC<InventoryTableProps> = ({ isAdmin, products, onEd
                           <RemoveRedEyeIcon />
                         )}
                       </IconButton>
+                      <IconButton onClick={() => !product.disabled && onDelete(index)} color="error">
+                        <DeleteIcon />
+                      </IconButton>
                     </>
                   ) : (
                     <>
                       <IconButton disabled color="primary">
                         <EditIcon sx={{ color: 'grey' }} />
-                      </IconButton>
-                      <IconButton disabled color="error">
-                        <DeleteIcon sx={{ color: 'grey' }} />
                       </IconButton>
                       <IconButton disabled color="secondary">
                         {product.disabled ? (
@@ -74,6 +73,10 @@ const InventoryTable: React.FC<InventoryTableProps> = ({ isAdmin, products, onEd
                           <RemoveRedEyeIcon sx={{ color: 'white' }} />
                         )}
                       </IconButton>
+                      <IconButton disabled color="error">
+                        <DeleteIcon sx={{ color: 'grey' }} />
+                      </IconButton>
+
                     </>
                   )}
 

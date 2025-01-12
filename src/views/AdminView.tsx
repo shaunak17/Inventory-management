@@ -16,7 +16,6 @@ const AdminView: React.FC = () => {
   }, [inventory]);
 
   const handleEdit = (product: InventoryItem) => {
-    console.log("Edit Product clicked:", product);
     setSelectedProduct(product); 
     setIsEditPopupOpen(true); 
   };
@@ -25,14 +24,12 @@ const AdminView: React.FC = () => {
     const updatedProducts = [...products];
     updatedProducts.splice(index, 1);
     setProducts(updatedProducts);
-    console.log("Deleted product at index:", index);
   };
 
   const handleDisable = (index: number) => {
     setProducts((prevProducts) =>
       prevProducts.map((product, i) => {
         if (i === index) {
-          console.log(`Current disabled value for product at index ${index}:`, product.disabled);
             return {
             ...product,
             disabled: !product.disabled,
@@ -43,9 +40,6 @@ const AdminView: React.FC = () => {
     );
   };
   
-  
-  
-
   const handleSaveProduct = (updatedProduct: InventoryItem) => {
     const updatedProducts = products.map((product) =>
       product.name === updatedProduct.name ? updatedProduct : product

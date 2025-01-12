@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export interface InventoryItem {
   name: string;
   category: string;
-  value?: string;
+  value?: number;
   quantity: number;
   price: number;
   id: string;
