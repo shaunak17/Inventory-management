@@ -37,9 +37,9 @@ const InventoryTable: React.FC<InventoryTableProps> = ({ isAdmin, products, onEd
               }}>
                 <TableCell sx={{ color: 'white' }}>{product.name}</TableCell>
                 <TableCell sx={{ color: 'white' }}>{product.category}</TableCell>
-                <TableCell sx={{ color: 'white' }}>{product.price}</TableCell>
+                <TableCell sx={{ color: 'white' }}>{`$${product.price.replace('$', '')}`}</TableCell>
                 <TableCell sx={{ color: 'white' }}>{Number(product.quantity)}</TableCell>
-                <TableCell sx={{ color: 'white' }}>{product.value}</TableCell>
+                <TableCell sx={{ color: 'white' }}>  {`$${product.value?.replace('$', '') || '0'}`}</TableCell>
                 <TableCell>
                   {isAdmin ? (
                     <>

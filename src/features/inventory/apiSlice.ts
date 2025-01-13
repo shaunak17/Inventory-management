@@ -3,9 +3,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export interface InventoryItem {
   name: string;
   category: string;
-  value?: number;
+  value?: string;
   quantity: number;
-  price: number;
+  price: string;
   id: string;
   disabled?: boolean;
 }

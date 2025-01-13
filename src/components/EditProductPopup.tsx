@@ -105,8 +105,8 @@ const EditProductPopup: React.FC<EditProductPopupProps> = ({ open, product, onCl
             </InputLabel>
             <TextField
               name="price"
-              type="number"
-              value={updatedProduct.price}
+              type="text"
+              value={updatedProduct.price.replace('$', '')}
               onChange={handleInputChange}
               fullWidth
               margin="normal"
@@ -154,7 +154,7 @@ const EditProductPopup: React.FC<EditProductPopupProps> = ({ open, product, onCl
             <TextField
               name="value"
               type="text"
-              value={updatedProduct.value}
+              value={updatedProduct?.value?.replace('$', '') || ''}
               onChange={handleInputChange}
               fullWidth
               margin="normal"
