@@ -36,7 +36,6 @@ const Dashboard: React.FC<{ products: any[] }> = ({
   );
   
   const outOfStockCount = products.filter((product) => {
-    // debugger
     return Number(product.quantity) === 0})
     .length;
   const uniqueCategories = new Set(products.map((product) => product.category))
